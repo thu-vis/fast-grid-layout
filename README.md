@@ -1,5 +1,4 @@
 # A fast grid layout for sample exploration
-==================================================================
 
 Codes for the fast grid layout developed in the paper ["OoDAnalyzer: Interactive Analysis of Out-of-Distribution Samples"](https://ieeexplore.ieee.org/document/8994105) (TVCG 2020).
 
