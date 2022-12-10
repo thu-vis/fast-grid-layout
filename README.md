@@ -2,7 +2,20 @@
 
 Codes for the grid layout developed in the paper ["OoDAnalyzer: Interactive Analysis of Out-of-Distribution Samples"](https://ieeexplore.ieee.org/document/8994105) (TVCG 2020).
 
+## Install
+```
+pip install -r requirements.txt
+```
+
 ## Usage
+```
+from GridLayout import GridLayout
+
+X = np.random.rand(500, 128)
+labels = np.random.randint(10, size=500)
+grid = GridLayout()
+X_embedded, grid_ass, grid_size = grid.fit(X, labels) # labels are optional
+```
 
 ## Acknowledgement
 This code is implemented based on the published code of [lapjv](https://github.com/src-d/lapjv), and it is our pleasure to acknowledge their contributions.
