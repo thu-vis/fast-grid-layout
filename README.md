@@ -17,6 +17,22 @@ grid = GridLayout()
 X_embedded, grid_ass, grid_size = grid.fit(X, labels) # labels are optional
 ```
 
+## How to setup demo
+1. download data from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/fdbca618102c46be84f2/?dl=1) and unzip
+1. install and run backend
+```bash
+pip install -r requirements.txt
+python demo.py --data_path YOUR_DATA_PATH
+```
+2. install and run frontend
+
+replace `BACKEND_BASE_URL` in `webpack.base.conf.js` to your backend URL
+```bash
+cd frontend
+yarn
+yarn start
+```
+
 ## Acknowledgement
 This code is implemented based on the published code of [lapjv](https://github.com/src-d/lapjv), and it is our pleasure to acknowledge their contributions.
 
