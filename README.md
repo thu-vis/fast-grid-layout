@@ -3,12 +3,26 @@
 Codes for the grid layout developed in the paper ["OoDAnalyzer: Interactive Analysis of Out-of-Distribution Samples"](https://ieeexplore.ieee.org/document/8994105) (TVCG 2020).
 
 ## Install
+First, install requirements.txt
 ```
 pip install -r requirements.txt
+```
+Then, install fastlapjv
+```
+git clone git@github.com:thu-vis/fast-lapjv.git
+cd fast-lapjv/
+python setup.py install --user
+```
+Finally, install faiss, you can follow [this doc](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md).
+```
+conda install -c pytorch faiss-gpu
+# or
+conda install -c pytorch faiss-cpu
 ```
 
 ## Usage
 ```
+import numpy as np
 from GridLayout import GridLayout
 
 X = np.random.rand(500, 128)
@@ -29,8 +43,24 @@ python demo.py --data_path YOUR_DATA_PATH
 replace `BACKEND_BASE_URL` in `webpack.base.conf.js` to your backend URL
 ```bash
 cd frontend
-yarn
-yarn start
+yarn # setup all frontend packages
+yarn start # start demo
+```
+## data format in demo
+```
+predict_info.pkl: a dict
+{
+	features: np array of features
+    labels: np array of labels
+	preds: np array of preds
+	scores: np array of scores
+    matrix: {
+		names: a list of labels
+		hierarchy: hierarchical structure of classes
+	}
+}
+
+trainImages.npy: all training images with shape (n, width, height, channel) 
 ```
 
 ## Acknowledgement

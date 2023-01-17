@@ -4,7 +4,6 @@ import threading
 import os
 import platform
 import sys
-import math
 from time import time
 import cffi
 

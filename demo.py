@@ -51,29 +51,28 @@ class DataCtrler(object):
             self.sampler.fit(data, labels, 0.5, 400)
             self.sampler.dump(self.sampling_buffer_path)
 
-    def process(self, statisticData, predictData = None, trainImages = None, bufferPath="/tmp/hierarchy.pkl"):
+    def process(self, predictData = None, trainImages = None, bufferPath="/tmp/hierarchy.pkl"):
         """process raw data
         """        
         self.bufferPath = bufferPath
         
-        self.statistic = self.processStatisticData(statisticData)
+        self.statistic = predictData["matrix"]
 
-        if predictData is not None:
-            self.labels = predictData["labels"].astype(int)
-            self.preds = predictData["preds"].astype(int)
-            self.features = predictData["features"]
-            self.scores = predictData["scores"]
-            self.confidence = np.max(self.scores, axis=1)
-            
-            sampling_buffer_path = os.path.join(bufferPath, "hierarchy.pkl")
-            self.sampling = self.processSamplingData(sampling_buffer_path)
+        self.labels = predictData["labels"].astype(int)
+        self.preds = predictData["preds"].astype(int)
+        self.features = predictData["features"]
+        self.scores = predictData["scores"]
+        self.confidence = np.max(self.scores, axis=1)
+        
+        sampling_buffer_path = os.path.join(bufferPath, "hierarchy.pkl")
+        self.sampling = self.processSamplingData(sampling_buffer_path)
         
         self.trainImages = trainImages
 
     def getLabelHierarchy(self):
         """ hierarchy labels
         """        
-        return self.statistic["confusion"]
+        return self.statistic
    
     def getImageGradient(self, imageID: int, method: str) -> list:
         """ get gradient of image
@@ -145,8 +144,8 @@ class DataCtrler(object):
 
         # zoom in hierarchical labels
         def getBottomLabels(zoomInNodes):
-            hierarchy = copy.deepcopy(self.statistic['confusion']['hierarchy'])
-            labelnames = copy.deepcopy(self.statistic['confusion']['names'])
+            hierarchy = copy.deepcopy(self.statistic['hierarchy'])
+            labelnames = copy.deepcopy(self.statistic['names'])
             nodes = [{
                 "index": zoomInNodes[i],
                 "label": zoomInLabels[i],
@@ -290,18 +289,18 @@ class DataCtrler(object):
                     if root['name'] in topLabelSet:
                         topLabelChildren[root['name']] = rootChildren
             return childrens
-        dfs(self.statistic['confusion']['hierarchy'])
+        dfs(self.statistic['hierarchy'])
         childToTop = {}
         for topLabelIdx in range(len(topLabels)):
             for child in topLabelChildren[topLabels[topLabelIdx]]:
                 childToTop[child] = topLabelIdx
-        n = len(self.statistic['confusion']['names'])
+        n = len(self.statistic['names'])
         labelTransform = np.zeros(n, dtype=int)
         for i in range(n):
-            if not childToTop.__contains__(self.statistic['confusion']['names'][i]):
-                print('not include ' + self.statistic['confusion']['names'][i])
+            if not childToTop.__contains__(self.statistic['names'][i]):
+                print('not include ' + self.statistic['names'][i])
             else:
-                labelTransform[i] = childToTop[self.statistic['confusion']['names'][i]]
+                labelTransform[i] = childToTop[self.statistic['names'][i]]
         return labelTransform.astype(int)
     
 dataCtrler = DataCtrler()
@@ -353,17 +352,14 @@ def main():
     if not os.path.exists(args.data_path):
         raise Exception("The path does not exist.")
 
-    evaluationPath = os.path.join(args.data_path, "evaluation.json")
     predictPath = os.path.join(args.data_path, "predict_info.pkl")
     trainImagePath = os.path.join(args.data_path, "trainImages.npy")
     bufferPath = os.path.join(args.data_path, "buffer")
     with open(predictPath, 'rb') as f:
         predictData = pickle.load(f)
-    with open(evaluationPath, 'r') as f:
-        statisticData = json.load(f)
     trainImages = np.load(trainImagePath)
     
-    dataCtrler.process(statisticData, predictData = predictData, trainImages = trainImages, bufferPath = bufferPath)
+    dataCtrler.process(predictData = predictData, trainImages = trainImages, bufferPath = bufferPath)
 
     app.run(port=args.port, host=args.host, threaded=True, debug=False)
 
