@@ -1,8 +1,6 @@
 import math
-from time import time
 
 import numpy as np
-from matplotlib import pyplot as plt
 from scipy.spatial.distance import cdist
 from fastlapjv import fastlapjv
 
