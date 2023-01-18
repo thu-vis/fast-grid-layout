@@ -58,7 +58,7 @@ class DataCtrler(object):
         
         self.statistic = {
             "names": predictData["class_names"],
-            "hierarchy": predictData["class_hierarchy"]
+            "hierarchy": [{'name':n, 'children':[{'name':n, 'children':[n]}]} for n in predictData["class_names"]]
         }
 
         self.labels = predictData["labels"].astype(int)
@@ -141,6 +141,8 @@ class DataCtrler(object):
                 zoomInConstraints = np.array(constraints)
             zoomInConstraintX = self.features[nodes]
             zoomInNodes = nodes + zoomInNodes
+            gridsize = int(math.sqrt(len(zoomInNodes)))
+            zoomInNodes = zoomInNodes[:gridsize*gridsize]
         zoomInLabels = self.labels[zoomInNodes]
         zoomInPreds = self.preds[zoomInNodes]
         zoomInConfidence = self.confidence[zoomInNodes]
