@@ -3,6 +3,8 @@
 Codes for the grid layout developed in the paper ["OoDAnalyzer: Interactive Analysis of Out-of-Distribution Samples"](https://ieeexplore.ieee.org/document/8994105) (TVCG 2020).
 
 ## Install
+fast-grid-layout use Python 3.8
+
 First, install requirements.txt
 ```
 pip install -r requirements.txt
@@ -54,10 +56,8 @@ predict_info.pkl: a dict
     labels: np array of labels
 	preds: np array of preds
 	scores: np array of scores
-    matrix: {
-		names: a list of labels
-		hierarchy: hierarchical structure of classes
-	}
+	class_names: a list of class names
+	class_hierarchy: hierarchical structure of classes
 }
 
 trainImages.npy: all training images with shape (n, width, height, channel) 
