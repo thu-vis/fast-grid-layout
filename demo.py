@@ -56,7 +56,10 @@ class DataCtrler(object):
         """        
         self.bufferPath = bufferPath
         
-        self.statistic = predictData["matrix"]
+        self.statistic = {
+            "names": predictData["class_names"],
+            "hierarchy": predictData["class_hierarchy"]
+        }
 
         self.labels = predictData["labels"].astype(int)
         self.preds = predictData["preds"].astype(int)
