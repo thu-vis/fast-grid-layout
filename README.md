@@ -2,7 +2,7 @@
 
 Codes for the grid layout developed in the paper ["OoDAnalyzer: Interactive Analysis of Out-of-Distribution Samples"](https://ieeexplore.ieee.org/document/8994105) (TVCG 2020).
 
-![demo](https://github.com/thu-vis/fast-grid-layout/blob/master/grid.gif)
+![demo](grid.gif)
 
 ## Install
 fast-grid-layout use Python 3.8

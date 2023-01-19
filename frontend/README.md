@@ -1,7 +1,5 @@
 # frontend
 
-> frontend of JittorVis
-
 ## Build Setup
 
 ``` bash
