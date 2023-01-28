@@ -38,9 +38,10 @@ cd frontend
 yarn # setup all frontend packages
 yarn start # start demo
 ```
-If the frontend is run successfully, the output of the terminal is like this:
+If the frontend is run successfully, the logs in the terminal is like this:
+![demo](log_output.png)
 
-4. Visit the url () in your browser.
+4. Visit the url in the logs (e.g., http://0.0.0.0:8084/ in the example above) on your browser.
 
 ## data format in demo
 ```
