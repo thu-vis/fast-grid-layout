@@ -28,20 +28,12 @@ conda install -c pytorch faiss-cpu
 ## How to setup the demo
 1. Download data from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/fdbca618102c46be84f2/?dl=1) and unzip
 
-2. Run backend
+2. Run Demo
 ```bash
 python demo.py --data_path YOUR_DATA_PATH
 ```
-3. Install and run frontend
-```bash
-cd frontend
-yarn # setup all frontend packages
-yarn start # start demo
-```
-If the frontend is run successfully, the logs in the terminal is like this:
-![demo](log_output.png)
 
-4. Visit the url in the logs (e.g., http://0.0.0.0:8084/ in the example above) on your browser.
+3. Visit the url in the logs (e.g., http://localhost:5005/ in the example above) on your browser.
 
 ## data format in demo
 ```
