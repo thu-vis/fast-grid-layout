@@ -5,7 +5,7 @@ Codes for the grid layout developed in the paper ["OoDAnalyzer: Interactive Anal
 ![demo](grid.gif)
 
 ## Install
-fast-grid-layout use Python 3.8
+This repo is tested with Python 3.8 on Ubuntu
 
 First, install requirements.txt
 ```
@@ -17,7 +17,7 @@ git clone git@github.com:thu-vis/fast-lapjv.git
 cd fast-lapjv/
 python setup.py install --user
 ```
-Finally, install faiss, you can follow [this doc](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md).
+Finally, install faiss(you can also follow [this doc](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md)).
 ```
 conda install -c pytorch faiss-gpu
 # or
@@ -27,9 +27,8 @@ conda install -c pytorch faiss-cpu
 
 ## How to setup the demo
 1. download data from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/fdbca618102c46be84f2/?dl=1) and unzip
-1. install and run backend
+1. run backend
 ```bash
-pip install -r requirements.txt
 python demo.py --data_path YOUR_DATA_PATH
 ```
 2. install and run frontend
