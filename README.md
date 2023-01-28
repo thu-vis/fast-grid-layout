@@ -17,7 +17,7 @@ git clone git@github.com:thu-vis/fast-lapjv.git
 cd fast-lapjv/
 python setup.py install --user
 ```
-3. install faiss(you can also follow [this doc](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md)).
+3. install faiss (you can also follow [this doc](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md)).
 ```
 conda install -c pytorch faiss-gpu
 # or
@@ -26,18 +26,22 @@ conda install -c pytorch faiss-cpu
 
 
 ## How to setup the demo
-1. download data from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/fdbca618102c46be84f2/?dl=1) and unzip
-2. run backend
+1. Download data from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/fdbca618102c46be84f2/?dl=1) and unzip
+
+2. Run backend
 ```bash
 python demo.py --data_path YOUR_DATA_PATH
 ```
-3. replace `BACKEND_BASE_URL` in `fast-grid-layout/frontend/build/webpack.base.conf.js` to your backend URL
-4. install and run frontend
+3. Install and run frontend
 ```bash
 cd frontend
 yarn # setup all frontend packages
 yarn start # start demo
 ```
+If the frontend is run successfully, the output of the terminal is like this:
+
+4. Visit the url () in your browser.
+
 ## data format in demo
 ```
 predict_info.pkl: a dict
