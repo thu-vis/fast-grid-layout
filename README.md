@@ -25,7 +25,7 @@ conda install -c pytorch faiss-cpu
 ```
 
 
-## How to setup demo
+## How to setup the demo
 1. download data from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/fdbca618102c46be84f2/?dl=1) and unzip
 1. install and run backend
 ```bash
