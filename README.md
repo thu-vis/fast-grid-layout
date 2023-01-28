@@ -7,17 +7,17 @@ Codes for the grid layout developed in the paper ["OoDAnalyzer: Interactive Anal
 ## Install
 This repo is tested with Python 3.8 on Ubuntu
 
-First, install requirements.txt
+1.  install requirements.txt
 ```
 pip install -r requirements.txt
 ```
-Then, install fastlapjv
+2. install fastlapjv
 ```
 git clone git@github.com:thu-vis/fast-lapjv.git
 cd fast-lapjv/
 python setup.py install --user
 ```
-Finally, install faiss(you can also follow [this doc](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md)).
+3. install faiss(you can also follow [this doc](https://github.com/facebookresearch/faiss/blob/main/INSTALL.md)).
 ```
 conda install -c pytorch faiss-gpu
 # or
@@ -27,13 +27,12 @@ conda install -c pytorch faiss-cpu
 
 ## How to setup the demo
 1. download data from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/fdbca618102c46be84f2/?dl=1) and unzip
-1. run backend
+2. run backend
 ```bash
 python demo.py --data_path YOUR_DATA_PATH
 ```
-2. install and run frontend
-
-replace `BACKEND_BASE_URL` in `webpack.base.conf.js` to your backend URL
+3. replace `BACKEND_BASE_URL` in `fast-grid-layout/frontend/build/webpack.base.conf.js` to your backend URL
+4. install and run frontend
 ```bash
 cd frontend
 yarn # setup all frontend packages
