@@ -23,7 +23,6 @@ import DataView from './components/DataView.vue';
 import Vue from 'vue';
 import {Menu, MenuItem} from 'element-ui';
 import axios from 'axios';
-import {simulatedAnnealing2FindBestPalette, evaluatePalette} from './js/optimizeFunc';
 
 Vue.use(Menu);
 Vue.use(MenuItem);
