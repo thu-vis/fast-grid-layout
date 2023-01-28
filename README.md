@@ -24,16 +24,6 @@ conda install -c pytorch faiss-gpu
 conda install -c pytorch faiss-cpu
 ```
 
-## Usage
-```
-import numpy as np
-from GridLayout import GridLayout
-
-X = np.random.rand(500, 128)
-labels = np.random.randint(10, size=500)
-grid = GridLayout()
-X_embedded, grid_ass, grid_size = grid.fit(X, labels) # labels are optional
-```
 
 ## How to setup demo
 1. download data from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/fdbca618102c46be84f2/?dl=1) and unzip
@@ -55,7 +45,7 @@ yarn start # start demo
 predict_info.pkl: a dict
 {
 	features: np array of features
-    labels: np array of labels
+        labels: np array of labels
 	preds: np array of preds
 	scores: np array of scores
 	class_names: a list of class names
