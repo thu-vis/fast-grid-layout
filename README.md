@@ -42,7 +42,7 @@ predict_info.pkl: a dict
 	features: np array of features
         labels: np array of labels
 	preds: np array of preds
-	scores: np array of scores
+	scores: np array of scores //the probability of each image to be sampled at the top level. You can set it as 1 if there is no any preference
 	class_names: a list of class names
 }
 
