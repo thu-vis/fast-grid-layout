@@ -30,10 +30,10 @@ conda install -c pytorch faiss-cpu
 
 2. Run Demo
 ```bash
-python demo.py --data_path YOUR_DATA_PATH
+python demo.py --data_path YOUR_DATA_PATH --port 5005
 ```
 
-3. Visit the url in the logs (e.g., http://localhost:5005/ in the example above) on your browser.
+3. Visit http://localhost:5005/ on your browser.
 
 ## data format in demo
 ```
