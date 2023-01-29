@@ -28,7 +28,7 @@ conda install -c pytorch faiss-cpu
 ## How to setup the demo
 1. Download data from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/fdbca618102c46be84f2/?dl=1) and unzip
 
-2. Run Demo
+2. Run demo (if the port 5005 is occupied, you can change to another one by modifying the commend)
 ```bash
 python demo.py --data_path YOUR_DATA_PATH --port 5005
 ```
