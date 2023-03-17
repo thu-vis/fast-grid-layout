@@ -55,6 +55,8 @@ class DataCtrler(object):
         """process raw data
         """        
         self.bufferPath = bufferPath
+        if not os.path.exists(self.bufferPath):
+            os.mkdir(self.bufferPath)
         
         self.statistic = {
             "names": predictData["class_names"],
